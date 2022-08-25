@@ -14,4 +14,4 @@ In this version (20220825):
 + Add subtitle into video(only supports mp4/srt)
 
 
-Exmaple details: TestVideoFFmpegCli.java
+Exmaple details: [TestVideoFFmpegCli.java](https://github.com/FennZheng/icu-media/blob/master/icu-media-video/src/test/java/test/fenn/icu/media/video/TestVideoFFmpegCli.java)
