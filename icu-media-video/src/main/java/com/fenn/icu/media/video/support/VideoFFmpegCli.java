@@ -164,6 +164,15 @@ public class VideoFFmpegCli {
         return true;
     }
 
+    /**
+     * encode video by video template
+     *
+     * @param ffmpegProbeResult
+     * @param newFilePath
+     * @param videoEncodeTemplateEnum
+     * @return
+     * @throws Exception
+     */
     public static boolean encode(FFmpegProbeResult ffmpegProbeResult, String newFilePath, VideoEncodeTemplateEnum videoEncodeTemplateEnum) throws Exception {
 
         if (ffmpegProbeResult == null) {
