@@ -4,7 +4,7 @@ package com.fenn.icu.media.video.common;
  * @className: VideoEncodeTemplateEnum
  * @Description:
  * @version: v1.0.0
- * @author: fennzheng
+ * @author: Fenn Zheng
  * @date: 2022-08-25 15:41
  */
 public enum VideoEncodeTemplateEnum {

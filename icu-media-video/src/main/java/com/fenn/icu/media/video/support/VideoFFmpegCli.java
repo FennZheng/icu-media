@@ -25,7 +25,7 @@ import java.util.stream.Collectors;
  * @className: VideoFFmpegCli
  * @Description:
  * @version: v1.0.0
- * @author: fennzheng
+ * @author: Fenn Zheng
  * @date: 2022-08-25 15:41
  */
 @Slf4j

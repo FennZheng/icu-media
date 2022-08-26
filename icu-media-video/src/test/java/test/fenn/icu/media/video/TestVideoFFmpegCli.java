@@ -16,7 +16,7 @@ import java.nio.file.Paths;
  * @className: TestVideoFFmpegClient
  * @Description:
  * @version: v1.0.0
- * @author: afeng
+ * @author: Fenn Zheng
  * @date: 2022-08-25 16:36
  *
  * Env init：Mac OS brew install ffmpeg
