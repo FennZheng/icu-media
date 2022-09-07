@@ -47,6 +47,7 @@ public class TestVideoFFmpegCli {
     private static final String OUTPUT_CONCAT_VIDEO = TEST_VIDEO.replace(".mp4", "-concat.mp4");
     private static final String OUTPUT_VIDEO_ADD_SUBTITLE = TEST_VIDEO.replace(".mp4", "_add_subtitle.mp4");;
     private static final String OUTPUT_VIDEO_EXPORT_SUBTITLE = TEST_VIDEO_WITH_SUBTITLE.replace(".mp4", "_export.srt");
+    private static final String OUTPUT_VIDEO_CUT = TEST_VIDEO_WITH_SUBTITLE.replace(".mp4", "-cut.mp4");
 
     @BeforeClass
     public static void init() throws Exception {
@@ -128,5 +129,13 @@ public class TestVideoFFmpegCli {
         String exportSrtPath = TEST_VIDEO_WITH_SUBTITLE.replace(".mp4", "_export.srt");
 
         VideoFFmpegCli.exportSubtitle(TEST_VIDEO_WITH_SUBTITLE, exportSrtPath);
+    }
+
+    @Test
+    public void testCut() throws Exception {
+
+        VideoFFmpegCli.cut(VideoFFmpegCli.getInfo(TEST_VIDEO), 5, 10, OUTPUT_VIDEO_CUT);
+
+        System.out.println("testEncode from:"+TEST_VIDEO+", output video:"+OUTPUT_VIDEO_CUT);
     }
 }

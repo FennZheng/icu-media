@@ -10,6 +10,7 @@ In this version (20220825):
 + Create first image from video
 + Encode video by video template
 + Concat videos
++ Cut video by time duration
 + Export soft subtitle from video(only supports mp4)
 + Add soft subtitle into video(only supports mp4/srt)
 

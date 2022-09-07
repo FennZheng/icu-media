@@ -229,6 +229,56 @@ public class VideoFFmpegCli {
      *
      * tip: diff videos container may cause compatibility problems, please check it finally
      *
+     * @param ffmpegProbeResult
+     * @param startSecond
+     * @param endSecond
+     * @param newVideoPath
+     * @return
+     * @throws Exception
+     */
+    public static boolean cut(FFmpegProbeResult ffmpegProbeResult, double startSecond, double endSecond, String newVideoPath) throws Exception {
+
+        FFmpeg ffmpeg = new FFmpeg();
+        FFprobe ffprobe = new FFprobe();
+
+        FFmpegBuilder fFmpegBuilder = new FFmpegBuilder();
+
+        if (startSecond < 0){
+            startSecond = 0;
+        }
+
+        if (endSecond == 0 || endSecond >= ffmpegProbeResult.format.duration){
+            endSecond = ffmpegProbeResult.format.duration;
+        }
+
+        //TODO 判断一下startSecond/endSecond
+
+        FFmpegOutputBuilder fFmpegOutputBuilder = fFmpegBuilder
+                .setInput(ffmpegProbeResult)
+                .addExtraArgs("-ss", String.valueOf(startSecond))
+                .addExtraArgs("-to", String.valueOf(endSecond))
+                .setFormat(ffmpegProbeResult.format.format_name)
+                .addOutput(newVideoPath)
+                .addExtraArgs("-vcodec","copy")
+                .addExtraArgs("-acodec","copy")
+                ;
+
+        FFmpegBuilder builder = fFmpegOutputBuilder.done();
+
+        FFmpegExecutor executor = new FFmpegExecutor(ffmpeg, ffprobe);
+
+        executor.createJob(builder).run();
+
+        return true;
+    }
+
+    /**
+     * concat video
+     *
+     * use concat protocol to merge multi videos
+     *
+     * tip: diff videos container may cause compatibility problems, please check it finally
+     *
      * @param originVideoPaths
      * @param newVideoPath
      * @return
